@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom'; // Importa Link de React Router
 import axios from 'axios';
 import ListComment from './Respuestas/ListComment';
+import backendUrl from '../../../ApiConfig';
 
 const Thread = ({userId}) => {
     const { id } = useParams();
@@ -25,7 +26,7 @@ const Thread = ({userId}) => {
     
     useEffect(() => {
       
-      axios.get('http://localhost:8080/respuestas/rootMessage/'+id)
+      axios.get(`${backendUrl}/respuestas/rootMessage/`+id)
         .then((response) => {
           setListcomments(response.data);
         })
@@ -37,7 +38,7 @@ const Thread = ({userId}) => {
 
     console.log(id);
     // Realiza una solicitud GET para obtener la lista de hilos desde tu backend
-    axios.get('http://localhost:8080/hilos/'+id)
+    axios.get(`${backendUrl}/hilos/`+id)
       .then((response) => {
         setHilos(response.data);
         console.log("get");
@@ -54,7 +55,7 @@ const Thread = ({userId}) => {
           return;
         }
     // Enviar la respuesta al backend
-    axios.post(`http://localhost:8080/respuestas/${userId}/${id}`, { contenido: editorContent })
+    axios.post(`${backendUrl}/respuestas/${userId}/${id}`, { contenido: editorContent })
       .then((response) => {
         // Actualizar la vista o realizar cualquier acción necesaria después de enviar la respuesta
         console.log('Respuesta enviada con éxito:', response.data);

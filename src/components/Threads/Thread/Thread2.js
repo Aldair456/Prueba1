@@ -2,13 +2,14 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'; // Importa Link de React Router
 import ListComment from './Respuestas/ListComment';
+import backendUrl from '../../../ApiConfig';
 
 export const Thread2 = () => {
     const { id } = useParams();
     const [listcomments, setListcomments] = useState([]);
     console.log(id);
     useEffect(() => {
-        axios.get('http://localhost:8080/respuestas/rootMessage/'+id)
+        axios.get(`${backendUrl}/respuestas/rootMessage/`+id)
           .then((response) => {
             setListcomments(response.data);
           })

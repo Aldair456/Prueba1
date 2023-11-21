@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
 import './styles/Login.css';
+import backendUrl from '../../ApiConfig';
 
 export const Login = () => {
   const [error, setError] = useState(null); // Estado para manejar mensajes de error
@@ -11,7 +11,6 @@ export const Login = () => {
     email: '',
     password: '',
   });
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -28,7 +27,7 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://54.242.10.223:8080/api/signin', formData);
+      const response = await axios.post(`${backendUrl}/api/signin`, formData);
 
       if (response.status === 200) {
 

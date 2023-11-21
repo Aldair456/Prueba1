@@ -4,6 +4,7 @@ import './styles/ProfileUser.css'
 import { FavoritesUser } from './routes_profile/FavoritesUser';
 import { Overview } from './routes_profile/Overview';
 import { SocialUser } from './routes_profile/SocialUser';
+import backendUrl from '../../../ApiConfig';
 
 export const ProfileUser = ({userId,idImage}) => {
     const { name } = useParams();
@@ -32,12 +33,12 @@ export const ProfileUser = ({userId,idImage}) => {
     <div className='Page_Content'>
         <div className='header_wrap'>
             <div className='banner'
-            style={{ backgroundImage: bannerSrc!=='null' ? `url(http://54.242.10.223:8080/usuarios/`+userId+`/banner_picture)` : 'none' }}
+            style={{ backgroundImage: bannerSrc!=='null' ? `url(${backendUrl}/usuarios/`+userId+`/banner_picture)` : 'none' }}
             >
                 <div className='shadow'></div>
                 <div className='container'>
                     <div className='banner_container'>
-                        <img src={idImage !== 'null' ? 'http://54.242.10.223:8080/usuarios/'+userId+'/profile_picture': require('../../images/profile/profile.png')} className='avatar' alt="profile" />
+                        <img src={idImage !== 'null' ? `${backendUrl}/usuarios/`+userId+'/profile_picture': require('../../images/profile/profile.png')} className='avatar' alt="profile" />
                         <div className='name_perfil'>{name}</div>
                         <div className='actions'></div>
                     </div>

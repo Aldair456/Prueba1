@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Styles/Threads.css'
+import backendUrl from '../../ApiConfig';
 
 const Threads = ({ userId }) => {
   const [hilos, setHilos] = useState([]);
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/hilos')
+      .get(`${backendUrl}/hilos`)
       .then((response) => {
         const sortedHilos = response.data.sort((a, b) => {
           // Ordena de forma descendente (de más reciente a más antiguo)

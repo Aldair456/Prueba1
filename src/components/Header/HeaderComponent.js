@@ -3,6 +3,7 @@ import '../Header/styles/header.css';
 import { SearchBar } from '../barraBusqueda/SearchBar';
 import { SearchResults } from '../barraBusqueda/SearchResults';
 import { useNavigate } from 'react-router-dom';
+import backendUrl from '../../ApiConfig';
 
 export const HeaderComponent = ({ userId ,idName,idImage}) => {
 
@@ -76,7 +77,7 @@ export const HeaderComponent = ({ userId ,idName,idImage}) => {
         </div>
         {(userId && idName)? (
           <div className='profile'>
-            <img src={idImage !== 'null' ? 'http://localhost:8080/usuarios/'+userId+'/profile_picture' : require('../images/profile/profile.png')} 
+            <img src={idImage !== 'null' ? `${backendUrl}/usuarios/`+userId+'/profile_picture' : require('../images/profile/profile.png')} 
             alt="profile" onClick={toogleMenu} />
             <div className={`sub_menu_wrap ${isMenuOpen ? 'active' : ''}`} id='subMenu'>
                 <div className='sub_menu'>

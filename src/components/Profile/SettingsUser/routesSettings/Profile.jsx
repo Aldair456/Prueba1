@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import axios from 'axios';
+import backendUrl from '../../../../ApiConfig';
 
 export const Profile = ({userId}) => {
   const [showButtons, setShowButtons] = useState(false);
@@ -47,7 +48,7 @@ export const Profile = ({userId}) => {
         formData.append("file", file_);
         formData.append("pictureType", "profile");
         try {
-            const response = await axios.post('http://54.242.10.223:8080/usuarios/'+userId+'/upload-picture', formData);
+            const response = await axios.post(`${backendUrl}/usuarios/`+userId+'/upload-picture', formData);
       
             if (response.status === 200) {
                 console.log("post image");
@@ -67,7 +68,7 @@ export const Profile = ({userId}) => {
             formDataBanner.append("pictureType", "background");
 
             try {
-                const response = await axios.post('http://54.242.10.223:8080/usuarios/'+userId+'/upload-picture', formDataBanner);
+                const response = await axios.post(`${backendUrl}/usuarios/`+userId+'/upload-picture', formDataBanner);
           
                 if (response.status === 200) {
                     console.log("post banner");

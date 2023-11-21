@@ -1,6 +1,7 @@
 // NewThread.js
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
+import backendUrl from '../../../ApiConfig';
 
 const NewThread = ({ userId }) => {
   const [nuevoHilo, setNuevoHilo] = useState({ tema: '', contenido: '' });
@@ -38,7 +39,7 @@ const NewThread = ({ userId }) => {
 
   const handleCreateHilo = () => {
     // Realizar una solicitud POST al backend para crear un nuevo hilo
-    axios.post(`http://localhost:8080/hilos/${userId}`, nuevoHilo)
+    axios.post(`${backendUrl}/hilos/${userId}`, nuevoHilo)
       .then((response) => {
         // Redirigir al usuario a la página de hilos después de crear el hilo
         window.location.href = '/Threads/'+response.data.id;
