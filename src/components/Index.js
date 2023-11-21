@@ -13,7 +13,7 @@ export const Index = () => {
         <SearchBarResultados/> 
         <div className='ListAnime_Section'>
           <div className='title'>
-              <h2>TRENDING NOW</h2>
+              <h2>TRENDING NOW 2</h2>
           </div>
           <TrendingNow/>
           <div className='title'>
