@@ -32,12 +32,12 @@ export const ProfileUser = ({userId,idImage}) => {
     <div className='Page_Content'>
         <div className='header_wrap'>
             <div className='banner'
-            style={{ backgroundImage: bannerSrc!=='null' ? `url(http://localhost:8080/usuarios/`+userId+`/banner_picture)` : 'none' }}
+            style={{ backgroundImage: bannerSrc!=='null' ? `url(http://54.242.10.223:8080/usuarios/`+userId+`/banner_picture)` : 'none' }}
             >
                 <div className='shadow'></div>
                 <div className='container'>
                     <div className='banner_container'>
-                        <img src={idImage !== 'null' ? 'http://localhost:8080/usuarios/'+userId+'/profile_picture': require('../../images/profile/profile.png')} className='avatar' alt="profile" />
+                        <img src={idImage !== 'null' ? 'http://54.242.10.223:8080/usuarios/'+userId+'/profile_picture': require('../../images/profile/profile.png')} className='avatar' alt="profile" />
                         <div className='name_perfil'>{name}</div>
                         <div className='actions'></div>
                     </div>

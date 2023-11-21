@@ -28,7 +28,7 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/api/signin', formData);
+      const response = await axios.post('http://54.242.10.223:8080/api/signin', formData);
 
       if (response.status === 200) {
 

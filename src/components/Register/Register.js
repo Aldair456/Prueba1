@@ -23,7 +23,7 @@ export const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/api/signup', formData);
+      const response = await axios.post('http://54.242.10.223:8080/api/signup', formData);
 
       if (response.status === 200) {
         navigate('/'); 
